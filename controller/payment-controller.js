@@ -1,5 +1,5 @@
 import paytmchecksum from '../paytm/PaytmChecksum.js';
-import { paytmParams, paytmMerchantkey } from '../index.js';
+import { paytmParams, paytmMerchantkey } from '../server.js';
 import formidable from 'formidable';
 import https from 'https';
 
@@ -57,7 +57,7 @@ export const paymentResponse = (request, response) => {
 
                     post_res.on('end', function () {
                         let result = JSON.parse(res)
-                        response.redirect(`http://localhost:3000/`)
+                        response.redirect(`/`)
                     });
                 });
                 post_req.write(post_data);
